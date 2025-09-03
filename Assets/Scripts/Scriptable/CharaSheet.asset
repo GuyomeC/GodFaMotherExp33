@@ -12,4 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf8752c48344cb449eba55db4d4ff42, type: 3}
   m_Name: CharaSheet
   m_EditorClassIdentifier: Assembly-CSharp::CharaSheet
-  sheets: []
+  sheets:
+  - name: Franck'o
+    visu: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    desc: En train de fairer des cocktails
+    target: {fileID: 0}
+  - name: "J\xE9r\xF4me"
+    visu: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    desc: Jesus
+    target: {fileID: 0}
+  - name: Fred
+    visu: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    desc: fait plouf avec son van
+    target: {fileID: 0}
+  - name: Remi
+    visu: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    desc: "devise un plan d\xE9moniaque"
+    target: {fileID: 0}

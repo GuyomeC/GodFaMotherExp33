@@ -14,13 +14,31 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "DisplaySheet",
+                    "type": "Button",
+                    "id": "ea23f961-3c8b-4a5c-aefc-35060723cf25",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Zoom",
+                    "type": "Value",
+                    "id": "cd7e6dcc-29a3-4cb1-964f-93e324a32304",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "03af6f3c-e573-494d-a136-5e2c93258b9b",
-                    "path": "<Joystick>/stick",
+                    "path": "<HID::Thrustmaster T.16000M>/stick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -82,6 +100,28 @@
                     "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b1e32d0e-7a38-43bc-827c-80277fffeb0b",
+                    "path": "<HID::Thrustmaster T.16000M>/button2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DisplaySheet",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ac58c5c-ee27-47f5-93e0-c68cbb83509b",
+                    "path": "<HID::Thrustmaster T.16000M>/slider",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
