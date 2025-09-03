@@ -6,34 +6,37 @@ using UnityEngine.Rendering;
 public class CameraScript : MonoBehaviour
 {
     [SerializeField] InputActionReference inputActionReference;
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField, Range(0,100)] float speed = 10f;
-
-    public event Action StartCameraMove;
-    public event Action StopCameraMove;
+    [SerializeField, Range(0,500)] float speed = 10f;
+    
+    private Vector2 moveInput;
+    private Vector2 velocity;
 
     void Start()
     {
         
     }
 
-    private void OnDestroy()
-    {
-
-    }
-
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Camera triggered");
-        if (collision != null && collision.CompareTag("Player"))
+        if (collision != null)
         {
             Debug.Log("Camera triggered by Player");
         }
     }
+    
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+        velocity = moveInput * speed;
+        transform.Translate(velocity * Time.deltaTime);
+    }
+
     void Update()
     {
         
+        Vector2 move = new Vector2(moveInput.x, moveInput.y);
+        transform.Translate(move * speed * Time.deltaTime);
     }
 }
