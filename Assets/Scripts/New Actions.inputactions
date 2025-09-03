@@ -144,7 +144,7 @@
                 {
                     "name": "",
                     "id": "ff5eb66f-63e6-4a1c-b5d3-4cfc980b6f78",
-                    "path": "<Keyboard>/space",
+                    "path": "<HID::Thrustmaster T.16000M>/trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
