@@ -2,17 +2,11 @@ using UnityEngine;
 
 public class Prof : MonoBehaviour
 {
+    [SerializeField] private bool IsInCamera;
+
     void Start()
     {
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision != null)
-        {
-            Debug.Log(collision);
-        }
+        IsInCamera = false;
     }
 
     void Update()
