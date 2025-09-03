@@ -21,16 +21,6 @@ public class CameraScript : MonoBehaviour
         Debug.Log("Camera confiner: " + confiner);
         Debug.Log("Camera collider: " + boxCollider);
     }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Camera triggered");
-        if (collision != null)
-        {
-            Debug.Log("Camera triggered by Player");
-        }
-    }
     
     public void OnMove(InputAction.CallbackContext context)
     {
