@@ -54,15 +54,14 @@ public class CameraScript : MonoBehaviour
         if (zoomInput > 0)
         {
             isZoomed = false;
-            StopAllCoroutines();
-            StartCoroutine(Zooming());
+           
         }
         else
         { 
             isZoomed = true;
-            StopAllCoroutines();
-            StartCoroutine(Zooming());
         }
+        StopAllCoroutines();
+        StartCoroutine(Zooming());
     }
     IEnumerator Zooming()
     {
@@ -70,18 +69,26 @@ public class CameraScript : MonoBehaviour
         float timer = 0;
         if (isZoomed)
         {
-            while (timer < 1)
+            while (timer < 3)
             {
-                cam.Lens.OrthographicSize = Mathf.Lerp(value, 545, timer);
+                cam.Lens.OrthographicSize = Mathf.Lerp(cam.Lens.OrthographicSize, 535, timer/3);
+                if (cam.Lens.OrthographicSize > 530)
+                {
+                    cam.Lens.OrthographicSize = 535;
+                }
                 timer += Time.deltaTime;
                 yield return null;
             }
         }
         else
         {
-            while (timer < 1)
+            while (timer < 3)
             {
-                cam.Lens.OrthographicSize = Mathf.Lerp(value, 125, timer);
+                cam.Lens.OrthographicSize = Mathf.Lerp(value, 125, timer/3);
+                if (cam.Lens.OrthographicSize < 130)
+                {
+                    cam.Lens.OrthographicSize = 125;
+                }
                 timer += Time.deltaTime;
                 yield return null;
             }
