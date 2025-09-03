@@ -41,6 +41,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Ciblage",
+                    "type": "Value",
+                    "id": "c4ab14df-ce15-49fc-bcd8-48a6c7f5b192",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -140,6 +149,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "784af381-b76b-4b6a-9eca-e55095d79bbe",
+                    "path": "<HID::Thrustmaster T.16000M>/hat",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ciblage",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
