@@ -20,7 +20,7 @@ public class sheetManager : MonoBehaviour
         ChangeSheet();
     }
 
-   void ChangeSheet()
+   public void ChangeSheet()
     {
         if (howManyCats > 0)
         {

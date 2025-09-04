@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Timers : MonoBehaviour
 {
     [SerializeField] private int _timerStartValue;
     [SerializeField] private TimerUI _timerUI;
@@ -11,6 +11,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
             if (value < 0)
             {
                 _timer = 0;
+                _timerUI.UpdateTimer(Timer);
+                //endGame
             }
             else
             {

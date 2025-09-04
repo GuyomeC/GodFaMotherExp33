@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
@@ -12,6 +13,7 @@ public class CameraScript : MonoBehaviour
     [SerializeField, Range(0, 500)] float speed = 10f;
     [SerializeField] CinemachineCamera cam;
     [SerializeField] private crosshair crosshairScript;
+    [SerializeField] private sheetManager sheetManager;
 
     private Vector2 moveInput;
     private Vector2 velocity;
@@ -26,7 +28,10 @@ public class CameraScript : MonoBehaviour
     private Vector2 moveCrosshairInput;
     private Vector2 velocityCrosshair;
 
-    NewMonoBehaviourScript timer;
+    [SerializeField]Timers timer;
+    public UnityEvent OnGoodGuess;
+    public UnityEvent OnBadGuess;
+
 
     void Start()
     {
@@ -104,17 +109,22 @@ public class CameraScript : MonoBehaviour
     {
         if(context.performed&&!isZoomed)
         {
-            if(crosshairScript.profs.Count < 1)
+            if(crosshairScript.profs.Count < 1|| !crosshairScript.profs.Contains(sheetManager.CurrentSheet.target))
             {
+                OnBadGuess.Invoke();
                 timer.Timer -= 5;
-                return;
+                Debug.Log("ahhhhh");
             }
-
-            foreach (GameObject prof in crosshairScript.profs)
+            else
             {
-                Destroy(prof);
+                OnGoodGuess.Invoke();
+                sheetManager.ChangeSheet();
             }
-            crosshairScript.profs.Clear();
+            /*  foreach (GameObject prof in crosshairScript.profs)
+              {
+                  Destroy(prof);
+              }
+            crosshairScript.profs.Clear();*/
         }
     }
 
