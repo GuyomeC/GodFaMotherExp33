@@ -73,6 +73,7 @@ public class CameraScript : MonoBehaviour
     }
     IEnumerator Zooming()
     {
+        cam.transform.position = new Vector3(0, 0, -10);
         float value = cam.Lens.OrthographicSize;
         Vector3 currentPos = cam.transform.position;
         float timer = 0;
@@ -80,12 +81,11 @@ public class CameraScript : MonoBehaviour
         {
             while (timer < 3)
             {
-                cam.Lens.OrthographicSize = Mathf.Lerp(cam.Lens.OrthographicSize, 535, timer/3);
-                if (cam.Lens.OrthographicSize > 530)
+                cam.Lens.OrthographicSize = Mathf.Lerp(cam.Lens.OrthographicSize, 1600, timer/3);
+                if (cam.Lens.OrthographicSize > 1590)
                 {
-                    cam.Lens.OrthographicSize = 535;
+                    cam.Lens.OrthographicSize = 1600;
                 }
-                cam.transform.position=Vector3.Lerp(currentPos, new Vector3(0, 0, -10), timer / 3);
                 Debug.Log(transform.position);
                 timer += Time.deltaTime;
                 yield return null;
