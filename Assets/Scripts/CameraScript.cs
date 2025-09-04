@@ -109,11 +109,13 @@ public class CameraScript : MonoBehaviour
     {
         if(context.performed&&!isZoomed)
         {
-            if(crosshairScript.profs.Count < 1|| !crosshairScript.profs.Contains(sheetManager.CurrentSheet.target))
+            if (crosshairScript.profs.Count < 1 || !crosshairScript.profs.Find(delegate (GameObject x)
+             {
+                 return x.name == sheetManager.CurrentSheet.target.name;
+             }))
             {
                 OnBadGuess.Invoke();
                 timer.Timer -= 5;
-                Debug.Log("ahhhhh");
             }
             else
             {

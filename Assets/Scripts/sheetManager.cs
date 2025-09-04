@@ -7,7 +7,8 @@ public class sheetManager : MonoBehaviour
     [SerializeField] int howManyCats;
     List<Sheet> listSheet = new List<Sheet>();
     [SerializeField] FicheUI _ficheUI;
-    Sheet _currentSheet;
+    [SerializeField] private GameObject _goodEndPanel;
+    [SerializeField] Sheet _currentSheet;
 
     public Sheet CurrentSheet { get => _currentSheet;}
 
@@ -32,7 +33,7 @@ public class sheetManager : MonoBehaviour
         }
         else
         {
-            //endgame;
+            _goodEndPanel.SetActive(true) ;
         }
     }
 }
