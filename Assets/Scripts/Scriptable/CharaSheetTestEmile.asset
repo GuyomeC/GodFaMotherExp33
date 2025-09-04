@@ -10,22 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: baf8752c48344cb449eba55db4d4ff42, type: 3}
-  m_Name: CharaSheet
+  m_Name: CharaSheetTestEmile
   m_EditorClassIdentifier: Assembly-CSharp::CharaSheet
   sheets:
   - name: Franck'o
     visu: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
     desc: En train de fairer des cocktails
-    target: {fileID: 0}
-  - name: "J\xE9r\xF4me"
-    visu: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-    desc: Jesus
-    target: {fileID: 0}
+    target: {fileID: 2569630733499183460, guid: a998a1f9fbc3ece42a3857e9f068b4ec, type: 3}
   - name: Fred
     visu: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
     desc: fait plouf avec son van
-    target: {fileID: 0}
-  - name: Remi
-    visu: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    desc: "devise un plan d\xE9moniaque"
-    target: {fileID: 0}
+    target: {fileID: 156088777104982390, guid: a675f9926511ad34c86cf1b1b89044cd, type: 3}

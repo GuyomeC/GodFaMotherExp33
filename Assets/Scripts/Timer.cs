@@ -4,6 +4,7 @@ public class Timers : MonoBehaviour
 {
     [SerializeField] private int _timerStartValue;
     [SerializeField] private TimerUI _timerUI;
+    [SerializeField] private GameObject _badEndPanel;
     private int _timer;
     private float _time;
     public int Timer { get => _timer;
@@ -12,7 +13,7 @@ public class Timers : MonoBehaviour
             {
                 _timer = 0;
                 _timerUI.UpdateTimer(Timer);
-                //endGame
+                _badEndPanel.SetActive(true);
             }
             else
             {
