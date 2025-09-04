@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 29148240}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: Audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,8 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   musicSource: {fileID: 800805808}
   sfxSource: {fileID: 1200690193}
-  backgroundMusic: {fileID: 0}
-  buttonClickSound: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: 8f19587a02a5591449c08b35d4d1fc59, type: 3}
+  buttonClickSound: {fileID: 8300000, guid: 17581c5ef799d8a40b181d360375ff42, type: 3}
 --- !u!4 &29148241
 Transform:
   m_ObjectHideFlags: 0

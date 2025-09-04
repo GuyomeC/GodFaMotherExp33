@@ -26,6 +26,7 @@ public class CameraScript : MonoBehaviour
     private Vector2 moveCrosshairInput;
     private Vector2 velocityCrosshair;
 
+    NewMonoBehaviourScript timer;
 
     void Start()
     {
@@ -103,6 +104,12 @@ public class CameraScript : MonoBehaviour
     {
         if(context.performed&&!isZoomed)
         {
+            if(crosshairScript.profs.Count < 1)
+            {
+                timer.Timer -= 5;
+                return;
+            }
+
             foreach (GameObject prof in crosshairScript.profs)
             {
                 Destroy(prof);
