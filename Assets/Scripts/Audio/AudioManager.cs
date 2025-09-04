@@ -9,6 +9,10 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Clips")]
     public AudioClip backgroundMusic;
     public AudioClip buttonClickSound;
+    public AudioClip findCatSound;
+    public AudioClip nobodyInCrosshairSound;
+    public AudioClip FindCoinSound;
+    public AudioClip endGameSound;
 
 
     private void Start()
