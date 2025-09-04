@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class CameraScript : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private crosshair crosshairScript;
     [SerializeField] private GameObject mask;
     [SerializeField] private sheetManager sheetManager;
+    [SerializeField] private CinemachineVolumeSettings volume;
+    [SerializeField] private Vignette vignette;
 
     private Vector2 moveInput;
     private Vector2 velocity;
@@ -37,7 +40,11 @@ public class CameraScript : MonoBehaviour
 
     void Start()
     {
-        CinemachineConfiner2D confiner = cam.GetComponent<CinemachineConfiner2D>();
+        foreach (VolumeComponent volumeComponent in volume.Profile.components)
+        {
+            if (volumeComponent.name == "Vignette") vignette = volumeComponent as Vignette;
+        }
+            CinemachineConfiner2D confiner = cam.GetComponent<CinemachineConfiner2D>();
         BoxCollider2D boxCollider = confiner.BoundingShape2D as BoxCollider2D;
         crosshair = GameObject.Find("Crosshair");
     }
@@ -81,6 +88,7 @@ public class CameraScript : MonoBehaviour
         {
             while (timer < 3)
             {
+                vignette.intensity.value = Mathf.Lerp(.68f, .3f, timer / 3);
                 cam.Lens.OrthographicSize = Mathf.Lerp(cam.Lens.OrthographicSize, 1600, timer / 3);
                 if (cam.Lens.OrthographicSize > 1590)
                 {
@@ -96,6 +104,7 @@ public class CameraScript : MonoBehaviour
         {
             while (timer < 3)
             {
+                vignette.intensity.value = Mathf.Lerp(.3f, .68f,timer / 3) ;
                 cam.Lens.OrthographicSize = Mathf.Lerp(value, 175, timer / 3);
                 if (cam.Lens.OrthographicSize < 180)
                 {
