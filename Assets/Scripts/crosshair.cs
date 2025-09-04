@@ -13,4 +13,12 @@ public class crosshair : MonoBehaviour
             profs.Add(collision.gameObject);
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision != null)
+        {
+            profs.Clear();
+        }
+    }
 }
