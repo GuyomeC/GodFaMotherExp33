@@ -439,6 +439,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6952464878771733263, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
   m_PrefabInstance: {fileID: 8372534791324571065}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &671863808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671863807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ae5aac4bebd1c418615220a86e9330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &699171508
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +462,7 @@ GameObject:
   - component: {fileID: 699171510}
   - component: {fileID: 699171509}
   - component: {fileID: 699171511}
+  - component: {fileID: 699171512}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -535,6 +548,23 @@ MonoBehaviour:
     MaxWindowSize: 1
     Padding: 0
   m_LegacyMaxWindowSize: -2
+--- !u!114 &699171512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699171508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449ef5ebbe24720439ec31d15f7b6f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineVolumeSettings
+  Weight: 1
+  FocusTracking: 0
+  FocusTarget: {fileID: 0}
+  FocusOffset: 0
+  Profile: {fileID: 11400000, guid: 3f9215ea0144899419cfbc0957140d3f, type: 2}
 --- !u!114 &1032086543 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5433910914200057472, guid: 7fc17984872e0994ea2deef8381bdf9c, type: 3}
@@ -991,7 +1021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
   ShowDebugText: 0
-  ShowCameraFrustum: 1
+  ShowCameraFrustum: 0
   IgnoreTimeScale: 0
   WorldUpOverride: {fileID: 0}
   ChannelMask: -1
@@ -1136,12 +1166,16 @@ MonoBehaviour:
   speed: 200
   cam: {fileID: 699171509}
   crosshairScript: {fileID: 530985165}
+  mask: {fileID: 0}
   sheetManager: {fileID: 1745388021}
   timer: {fileID: 1032086543}
   OnGoodGuess:
     m_PersistentCalls:
       m_Calls: []
   OnBadGuess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCoin:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &2032571180
@@ -1167,7 +1201,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1401,6 +1435,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3877335331082308960, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877335331082308960, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877335331082308960, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877335331082308960, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3999481204727508959, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0.5
@@ -1493,6 +1543,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7936211899892237399, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936211899892237399, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936211899892237399, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936211899892237399, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8051799171638242579, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -1500,7 +1566,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6952464878771733263, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 671863808}
   m_SourcePrefab: {fileID: 100100000, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
