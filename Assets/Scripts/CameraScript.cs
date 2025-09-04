@@ -11,7 +11,8 @@ using UnityEngine.Rendering.Universal;
 public class CameraScript : MonoBehaviour
 {
     [SerializeField] InputActionReference inputActionReference;
-    [SerializeField, Range(0, 500)] float speed = 10f;
+    [SerializeField, Range(0, 500)] float cameraSpeed = 10f;
+    [SerializeField, Range(0, 500)] float crossHairSpeed = 200f;
     [SerializeField] CinemachineCamera cam;
     [SerializeField] private crosshair crosshairScript;
     [SerializeField] private GameObject mask;
@@ -52,7 +53,7 @@ public class CameraScript : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        velocity = moveInput * speed;
+        velocity = moveInput * cameraSpeed;
         if (!isZoomed)
         {
             cam.transform.Translate(velocity * Time.deltaTime);
@@ -154,7 +155,7 @@ public class CameraScript : MonoBehaviour
         if (!isZoomed)
         {
             moveCrosshairInput = context.ReadValue<Vector2>();
-            velocityCrosshair = moveCrosshairInput * speed;
+            velocityCrosshair = moveCrosshairInput * crossHairSpeed;
             crosshair.transform.Translate(velocityCrosshair * Time.deltaTime);
         }
     }
@@ -164,9 +165,9 @@ public class CameraScript : MonoBehaviour
         Vector2 move = new Vector2(moveInput.x, moveInput.y);
         if (!isZoomed)
         {
-            cam.transform.Translate(move * speed * Time.deltaTime);
+            cam.transform.Translate(move * cameraSpeed * Time.deltaTime);
             Vector2 crossshairMovement = new Vector2(moveCrosshairInput.x, moveCrosshairInput.y);
-            crosshair.transform.Translate(crossshairMovement * speed * Time.deltaTime);
+            crosshair.transform.Translate(crossshairMovement * crossHairSpeed * Time.deltaTime);
         }
 
 
