@@ -13,12 +13,13 @@ public class CameraScript : MonoBehaviour
     [SerializeField, Range(0, 500)] float speed = 10f;
     [SerializeField] CinemachineCamera cam;
     [SerializeField] private crosshair crosshairScript;
+    [SerializeField] private GameObject mask;
     [SerializeField] private sheetManager sheetManager;
 
     private Vector2 moveInput;
     private Vector2 velocity;
 
-    private Vector2 minPosition = new Vector2(-300,-160);
+    private Vector2 minPosition = new Vector2(-300, -160);
     private Vector2 maxPosition = new Vector2(300, 160);
 
     private float zoomInput;
@@ -28,7 +29,7 @@ public class CameraScript : MonoBehaviour
     private Vector2 moveCrosshairInput;
     private Vector2 velocityCrosshair;
 
-    [SerializeField]Timers timer;
+    [SerializeField] Timers timer;
     public UnityEvent OnGoodGuess;
     public UnityEvent OnBadGuess;
     public UnityEvent OnCoin;
@@ -60,10 +61,11 @@ public class CameraScript : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(Zooming());
         }
-        else if(!isZoomed&&zoomInput<0)
-        { 
+        else if (!isZoomed && zoomInput < 0)
+        {
             isZoomed = true;
             crosshair.gameObject.SetActive(false);
+            mask.SetActive(false);
             StopAllCoroutines();
             StartCoroutine(Zooming());
         }
@@ -71,6 +73,7 @@ public class CameraScript : MonoBehaviour
     }
     IEnumerator Zooming()
     {
+        cam.transform.position = new Vector3(0, 0, -10);
         float value = cam.Lens.OrthographicSize;
         Vector3 currentPos = cam.transform.position;
         float timer = 0;
@@ -78,12 +81,11 @@ public class CameraScript : MonoBehaviour
         {
             while (timer < 3)
             {
-                cam.Lens.OrthographicSize = Mathf.Lerp(cam.Lens.OrthographicSize, 535, timer/3);
-                if (cam.Lens.OrthographicSize > 530)
+                cam.Lens.OrthographicSize = Mathf.Lerp(cam.Lens.OrthographicSize, 1600, timer / 3);
+                if (cam.Lens.OrthographicSize > 1590)
                 {
-                    cam.Lens.OrthographicSize = 535;
+                    cam.Lens.OrthographicSize = 1600;
                 }
-                cam.transform.position=Vector3.Lerp(currentPos, new Vector3(0, 0, -10), timer / 3);
                 Debug.Log(transform.position);
                 timer += Time.deltaTime;
                 yield return null;
@@ -94,22 +96,29 @@ public class CameraScript : MonoBehaviour
         {
             while (timer < 3)
             {
-                cam.Lens.OrthographicSize = Mathf.Lerp(value, 125, timer/3);
-                if (cam.Lens.OrthographicSize < 130)
+                cam.Lens.OrthographicSize = Mathf.Lerp(value, 175, timer / 3);
+                if (cam.Lens.OrthographicSize < 180)
                 {
-                    cam.Lens.OrthographicSize = 125;
+                    cam.Lens.OrthographicSize = 175;
                 }
                 timer += Time.deltaTime;
                 yield return null;
             }
+            mask.SetActive(true);
         }
         yield return null;
     }
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        if(context.performed&&!isZoomed)
+        if (context.performed && !isZoomed)
         {
+            if (crosshairScript.profs.Count > 0 && crosshairScript.profs[0].tag == "Coin")
+            {
+                OnCoin.Invoke(); //timer.Timer += 5;
+                return;
+            }
+
             if (crosshairScript.profs.Count < 1 || !crosshairScript.profs.Find(delegate (GameObject x)
              {
                  return x.name == sheetManager.CurrentSheet.target.name;
@@ -120,15 +129,8 @@ public class CameraScript : MonoBehaviour
             }
             else
             {
-                if (crosshairScript.profs[0].tag == "Coin")
-                {
-                    OnCoin.Invoke(); //timer.Timer += 5;
-                }
-                else
-                {
-                    OnGoodGuess.Invoke();
-                    sheetManager.ChangeSheet();
-                }
+                OnGoodGuess.Invoke();
+                sheetManager.ChangeSheet();
             }
             /*  foreach (GameObject prof in crosshairScript.profs)
               {
@@ -158,6 +160,6 @@ public class CameraScript : MonoBehaviour
             crosshair.transform.Translate(crossshairMovement * speed * Time.deltaTime);
         }
 
-        
+
     }
 }
