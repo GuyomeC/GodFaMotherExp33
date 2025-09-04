@@ -13,9 +13,4 @@ public class crosshair : MonoBehaviour
             profs.Add(collision.gameObject);
         }
     }
-
-    void Update()
-    {
-        
-    }
 }
