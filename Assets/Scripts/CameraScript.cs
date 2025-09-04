@@ -46,23 +46,26 @@ public class CameraScript : MonoBehaviour
     public void OnZoom(InputAction.CallbackContext context)
     {
         zoomInput = context.ReadValue<float>();
-        cam.transform.position = new Vector3(0,0,cam.transform.position.z);
-        if (zoomInput > 0)
+        if (zoomInput > 0 && isZoomed)
         {
             isZoomed = false;
-           
+            crosshair.gameObject.SetActive(true);
+            StopAllCoroutines();
+            StartCoroutine(Zooming());
         }
-        else
+        else if(!isZoomed&&zoomInput<0)
         { 
             isZoomed = true;
-            
+            crosshair.gameObject.SetActive(false);
+            StopAllCoroutines();
+            StartCoroutine(Zooming());
         }
-        StopAllCoroutines();
-        StartCoroutine(Zooming());
+
     }
     IEnumerator Zooming()
     {
         float value = cam.Lens.OrthographicSize;
+        Vector3 currentPos = cam.transform.position;
         float timer = 0;
         if (isZoomed)
         {
@@ -73,6 +76,8 @@ public class CameraScript : MonoBehaviour
                 {
                     cam.Lens.OrthographicSize = 535;
                 }
+                cam.transform.position=Vector3.Lerp(currentPos, new Vector3(0, 0, -10), timer / 3);
+                Debug.Log(transform.position);
                 timer += Time.deltaTime;
                 yield return null;
             }
@@ -96,7 +101,7 @@ public class CameraScript : MonoBehaviour
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if(context.performed&&!isZoomed)
         {
             foreach (GameObject prof in crosshairScript.profs)
             {
@@ -108,9 +113,12 @@ public class CameraScript : MonoBehaviour
 
     public void OnMoveCrosshair(InputAction.CallbackContext context)
     {
-        moveCrosshairInput = context.ReadValue<Vector2>();
-        velocityCrosshair = moveCrosshairInput * speed;
-        crosshair.transform.Translate(velocityCrosshair * Time.deltaTime);
+        if (!isZoomed)
+        {
+            moveCrosshairInput = context.ReadValue<Vector2>();
+            velocityCrosshair = moveCrosshairInput * speed;
+            crosshair.transform.Translate(velocityCrosshair * Time.deltaTime);
+        }
     }
 
     void Update()
@@ -119,9 +127,10 @@ public class CameraScript : MonoBehaviour
         if (!isZoomed)
         {
             cam.transform.Translate(move * speed * Time.deltaTime);
+            Vector2 crossshairMovement = new Vector2(moveCrosshairInput.x, moveCrosshairInput.y);
+            crosshair.transform.Translate(crossshairMovement * speed * Time.deltaTime);
         }
 
-        Vector2 crossshairMovement = new Vector2(moveCrosshairInput.x, moveCrosshairInput.y);
-        crosshair.transform.Translate(crossshairMovement * speed * Time.deltaTime);
+        
     }
 }

@@ -8,6 +8,9 @@ public class sheetManager : MonoBehaviour
     List<Sheet> listSheet = new List<Sheet>();
     [SerializeField] FicheUI _ficheUI;
     Sheet _currentSheet;
+
+    public Sheet CurrentSheet { get => _currentSheet;}
+
     void Start()
     {
         foreach(Sheet s in _sheets.sheets)
@@ -23,7 +26,7 @@ public class sheetManager : MonoBehaviour
         {
             int rand = Random.Range(0, listSheet.Count);
             _currentSheet = listSheet[rand];
-            _ficheUI.UpdateSheet(_currentSheet.name, _currentSheet.visu, _currentSheet.desc);
+            _ficheUI.UpdateSheet(CurrentSheet.name, CurrentSheet.visu, CurrentSheet.desc);
             listSheet.Remove(listSheet[rand]);
             howManyCats--;
         }
