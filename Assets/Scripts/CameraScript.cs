@@ -31,6 +31,7 @@ public class CameraScript : MonoBehaviour
     [SerializeField]Timers timer;
     public UnityEvent OnGoodGuess;
     public UnityEvent OnBadGuess;
+    public UnityEvent OnCoin;
 
 
     void Start()
@@ -117,8 +118,15 @@ public class CameraScript : MonoBehaviour
             }
             else
             {
-                OnGoodGuess.Invoke();
-                sheetManager.ChangeSheet();
+                if (crosshairScript.profs[0].tag == "Coin")
+                {
+                    OnCoin.Invoke(); //timer.Timer += 5;
+                }
+                else
+                {
+                    OnGoodGuess.Invoke();
+                    sheetManager.ChangeSheet();
+                }
             }
             /*  foreach (GameObject prof in crosshairScript.profs)
               {

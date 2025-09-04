@@ -154,6 +154,17 @@
                 },
                 {
                     "name": "",
+                    "id": "49bb69fa-6b92-4555-a269-c1af90455c70",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "784af381-b76b-4b6a-9eca-e55095d79bbe",
                     "path": "<HID::Thrustmaster T.16000M>/hat",
                     "interactions": "",
