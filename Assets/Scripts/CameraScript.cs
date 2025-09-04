@@ -13,6 +13,7 @@ public class CameraScript : MonoBehaviour
     [SerializeField, Range(0, 500)] float speed = 10f;
     [SerializeField] CinemachineCamera cam;
     [SerializeField] private crosshair crosshairScript;
+    [SerializeField] private GameObject mask;
     [SerializeField] private sheetManager sheetManager;
 
     private Vector2 moveInput;
@@ -64,6 +65,7 @@ public class CameraScript : MonoBehaviour
         { 
             isZoomed = true;
             crosshair.gameObject.SetActive(false);
+            mask.SetActive(false);
             StopAllCoroutines();
             StartCoroutine(Zooming());
         }
@@ -94,14 +96,15 @@ public class CameraScript : MonoBehaviour
         {
             while (timer < 3)
             {
-                cam.Lens.OrthographicSize = Mathf.Lerp(value, 125, timer/3);
-                if (cam.Lens.OrthographicSize < 130)
+                cam.Lens.OrthographicSize = Mathf.Lerp(value, 175, timer/3);
+                if (cam.Lens.OrthographicSize < 180)
                 {
-                    cam.Lens.OrthographicSize = 125;
+                    cam.Lens.OrthographicSize = 175;
                 }
                 timer += Time.deltaTime;
                 yield return null;
             }
+            mask.SetActive(true);
         }
         yield return null;
     }
