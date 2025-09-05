@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1683956867649202727}
   - component: {fileID: -4234205316483404298}
   m_Layer: 0
-  m_Name: olivier_tatiana
+  m_Name: OlivierCatiana
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
