@@ -11,8 +11,9 @@ using UnityEngine.Rendering.Universal;
 public class CameraScript : MonoBehaviour
 {
     [SerializeField] InputActionReference inputActionReference;
-    [SerializeField, Range(0, 500)] float cameraSpeed = 10f;
+    [SerializeField, Range(0, 500)] float cameraSpeed = 160f;
     [SerializeField, Range(0, 500)] float crossHairSpeed = 200f;
+    [SerializeField, Range(1, 10)] float zoomSpeed = 3f;
     [SerializeField] CinemachineCamera cam;
     [SerializeField] private crosshair crosshairScript;
     [SerializeField] private GameObject mask;
@@ -64,14 +65,14 @@ public class CameraScript : MonoBehaviour
     public void OnZoom(InputAction.CallbackContext context)
     {
         zoomInput = context.ReadValue<float>();
-        if (zoomInput > 0 && isZoomed)
+        if (zoomInput < 0 && isZoomed)
         {
             isZoomed = false;
             crosshair.gameObject.SetActive(true);
             StopAllCoroutines();
             StartCoroutine(Zooming());
         }
-        else if (!isZoomed && zoomInput < 0)
+        else if (!isZoomed && zoomInput > 0)
         {
             isZoomed = true;
             crosshair.gameObject.SetActive(false);
@@ -89,32 +90,32 @@ public class CameraScript : MonoBehaviour
         float timer = 0;
         if (isZoomed)
         {
-            while (timer < 3)
+            while (timer < zoomSpeed)
             {
-                vignette.intensity.value = Mathf.Lerp(.68f, .3f, timer / 3);
-                cam.Lens.OrthographicSize = Mathf.Lerp(cam.Lens.OrthographicSize, 1600, timer / 3);
+                vignette.intensity.value = Mathf.Lerp(.68f, .3f, timer / zoomSpeed);
+                cam.Lens.OrthographicSize = Mathf.Lerp(cam.Lens.OrthographicSize, 1600, timer / zoomSpeed);
                 if (cam.Lens.OrthographicSize > 1590)
                 {
                     cam.Lens.OrthographicSize = 1600;
                 }
                 Debug.Log(transform.position);
                 timer += Time.deltaTime;
-                yield return null;
+                yield return timer;
             }
 
         }
         else
         {
-            while (timer < 3)
+            while (timer < zoomSpeed)
             {
-                vignette.intensity.value = Mathf.Lerp(.3f, .68f,timer / 3) ;
-                cam.Lens.OrthographicSize = Mathf.Lerp(value, 175, timer / 3);
+                vignette.intensity.value = Mathf.Lerp(.3f, .68f,timer / zoomSpeed) ;
+                cam.Lens.OrthographicSize = Mathf.Lerp(value, 175, timer / zoomSpeed);
                 if (cam.Lens.OrthographicSize < 180)
                 {
                     cam.Lens.OrthographicSize = 175;
                 }
                 timer += Time.deltaTime;
-                yield return null;
+                yield return timer;
             }
             mask.SetActive(true);
         }
