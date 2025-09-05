@@ -12,8 +12,14 @@ public class sheetManager : MonoBehaviour
     [SerializeField] Sheet _currentSheet;
     [SerializeField] private PlayerInput input;
     [SerializeField] private CameraScript cam;
+    AudioManager AudioManager;
 
     public Sheet CurrentSheet { get => _currentSheet;}
+
+    private void Awake()
+    {
+        AudioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+    }
 
     void Start()
     {
@@ -37,6 +43,8 @@ public class sheetManager : MonoBehaviour
         else
         {
             _goodEndPanel.SetActive(true) ;
+            AudioManager?.PlaySFX(AudioManager.winSound);
+            AudioManager.musicSource.volume -= AudioManager.musicVolumeChange;
             cam.Dezoom();
             input.DeactivateInput();
         }
