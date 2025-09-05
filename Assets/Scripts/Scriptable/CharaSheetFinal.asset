@@ -39,7 +39,7 @@ MonoBehaviour:
       sur son code. Vrai GP, toujours derri\xE8re l'\xE9cran !"
     target: {fileID: 2569630733499183460, guid: 23c168ba04567434caae3d2a2edd9a8f, type: 3}
   - name: Olivier/Catiana
-    visu: {fileID: -1288049615716269, guid: e555183820be98744be967f76688d4c5, type: 3}
+    visu: {fileID: 21300000, guid: e555183820be98744be967f76688d4c5, type: 3}
     desc: "La seule tenue qu'ils leur restaient apr\xE8s le crash est un costume
       de cosmonaute. Au moins, ils sont dans la m\xEAme gal\xE8re."
     target: {fileID: 2569630733499183460, guid: a0bf533be85be494294b1c3aaf270415, type: 3}
@@ -54,3 +54,7 @@ MonoBehaviour:
       carcasse de l'avion. Ah, et il a aussi trouv\xE9 un masque \xE0 la Ziak. Il
       se trouve cool avec."
     target: {fileID: 2569630733499183460, guid: 0e9a8726a54601847a37d69c6e863ba7, type: 3}
+  - name: Maelle
+    visu: {fileID: -5323757731555653822, guid: 3403223b964322f4dad04a5cfa56a682, type: 3}
+    desc: Maelle profite du soleil
+    target: {fileID: 8250562953841413657, guid: 2e416ce9226a48e43b4826938f3a3b10, type: 3}
