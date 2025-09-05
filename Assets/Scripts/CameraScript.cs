@@ -125,7 +125,9 @@ public class CameraScript : MonoBehaviour
         {
             if (crosshairScript.profs.Count > 0 && crosshairScript.profs[0].tag == "Coin")
             {
-                OnCoin.Invoke(); //timer.Timer += 5;
+                OnCoin.Invoke();
+                timer.Timer += 5;
+                Destroy(crosshairScript.profs[0].gameObject);
                 return;
             }
 
