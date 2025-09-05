@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
@@ -23,6 +24,8 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private FicheUI fiche;
     [SerializeField] private int gainTime = 5;
     [SerializeField] private int loseTime = 5;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private int score = 0;
 
     private Vector2 moveInput;
     private Vector2 velocity;
@@ -170,7 +173,10 @@ public class CameraScript : MonoBehaviour
             else
             {
                 OnGoodGuess.Invoke();
+                crosshairScript.profs[0].GetComponentInChildren<ParticleSystem>().Play();
                 sheetManager.ChangeSheet();
+                score++;
+                scoreText.text = "Cat find : " + score + " / 9";
             }
             /*  foreach (GameObject prof in crosshairScript.profs)
               {

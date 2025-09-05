@@ -141,6 +141,17 @@
                 },
                 {
                     "name": "",
+                    "id": "1413e29b-9855-479b-aac9-be4dbbb197ae",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DisplaySheet",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1ac58c5c-ee27-47f5-93e0-c68cbb83509b",
                     "path": "<HID::Thrustmaster T.16000M>/slider",
                     "interactions": "",
