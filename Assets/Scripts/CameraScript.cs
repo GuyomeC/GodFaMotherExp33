@@ -140,11 +140,19 @@ public class CameraScript : MonoBehaviour
              }))
             {
                 OnBadGuess.Invoke();
+                Debug.Log("ah");
                 timer.Timer -= 5;
             }
             else
             {
                 OnGoodGuess.Invoke();
+                Debug.Log("bh");
+                GameObject prof = crosshairScript.profs.Find(delegate (GameObject x)
+                  {
+                      return x.name == sheetManager.CurrentSheet.target.name;
+                  }
+                  );
+                    prof.GetComponentInChildren<ParticleSystem>().Play();
                 sheetManager.ChangeSheet();
             }
             /*  foreach (GameObject prof in crosshairScript.profs)
