@@ -3,16 +3,21 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [Header("Audio Sources")]
-    [SerializeField] AudioSource musicSource;
-    [SerializeField] AudioSource sfxSource;
+    public AudioSource musicSource;
+    public AudioSource sfxSource;
 
     [Header("Audio Clips")]
     public AudioClip backgroundMusic;
-    public AudioClip buttonClickSound;
+    public AudioClip clockMusic;
     public AudioClip findCatSound;
     public AudioClip nobodyInCrosshairSound;
     public AudioClip FindCoinSound;
-    public AudioClip endGameSound;
+    public AudioClip loseSound;
+    public AudioClip winSound;
+
+    [Header("Volume Settings")]
+    [Range(0f, 1f)] public float musicVolumeChange = 0.5f;
+    public float musicVolumeBase;
 
 
     private void Start()
@@ -20,6 +25,7 @@ public class AudioManager : MonoBehaviour
         musicSource.clip = backgroundMusic;
         musicSource.loop = true;
         musicSource.Play();
+        musicVolumeBase = musicSource.volume;
     }
 
     public void PlaySFX(AudioClip clip)
