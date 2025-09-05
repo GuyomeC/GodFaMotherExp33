@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 264045958}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Audio
+  m_TagString: AudioManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -412,7 +412,14 @@ MonoBehaviour:
   musicSource: {fileID: 2100345180}
   sfxSource: {fileID: 1952847878}
   backgroundMusic: {fileID: 8300000, guid: 8f19587a02a5591449c08b35d4d1fc59, type: 3}
-  buttonClickSound: {fileID: 8300000, guid: 17581c5ef799d8a40b181d360375ff42, type: 3}
+  clockMusic: {fileID: 0}
+  findCatSound: {fileID: 0}
+  nobodyInCrosshairSound: {fileID: 0}
+  FindCoinSound: {fileID: 0}
+  loseSound: {fileID: 0}
+  winSound: {fileID: 0}
+  musicVolumeChange: 0.5
+  musicVolumeBase: 0
 --- !u!4 &264045957
 Transform:
   m_ObjectHideFlags: 0

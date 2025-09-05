@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Audio
   - Coin
+  - AudioManager
   layers:
   - Default
   - TransparentFX
