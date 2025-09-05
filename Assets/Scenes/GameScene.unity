@@ -12702,6 +12702,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c4ab14df-ce15-49fc-bcd8-48a6c7f5b192
     m_ActionName: Gameplay/Ciblage
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 519420033}
+        m_TargetAssemblyTypeName: CameraScript, Assembly-CSharp
+        m_MethodName: OnZoomPC
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2833b20b-dc68-4e12-97db-df961724a92b
+    m_ActionName: 'Gameplay/ZoomPC[/Keyboard/numpad0]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay

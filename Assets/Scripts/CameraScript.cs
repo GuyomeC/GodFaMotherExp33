@@ -84,6 +84,29 @@ public class CameraScript : MonoBehaviour
         }
 
     }
+
+    public void OnZoomPC(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            if (isZoomed)
+            {
+                isZoomed = false;
+                crosshair.gameObject.SetActive(true);
+                StopAllCoroutines();
+                StartCoroutine(Zooming());
+            }
+            else
+            {
+                isZoomed = true;
+                crosshair.gameObject.SetActive(false);
+                mask.SetActive(false);
+                StopAllCoroutines();
+                StartCoroutine(Zooming());
+            }
+        }
+    }
+
     IEnumerator Zooming()
     {
         cam.transform.position = new Vector3(0, 0, -10);
