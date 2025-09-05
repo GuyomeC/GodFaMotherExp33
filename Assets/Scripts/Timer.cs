@@ -18,8 +18,6 @@ public class Timers : MonoBehaviour
                 _timer = 0;
                 _timerUI.UpdateTimer(Timer);
                 _badEndPanel.SetActive(true);
-                AudioManager?.PlaySFX(AudioManager.loseSound);
-                AudioManager.musicSource.volume -= AudioManager.musicVolumeChange;
                 cam.Dezoom();
                 input.DeactivateInput();
             }
@@ -53,6 +51,12 @@ public class Timers : MonoBehaviour
             Timer--;
             _time = 0;
         }
+
+	if (Timer < 1)
+	{
+		AudioManager.PlaySFX(AudioManager.loseSound);
+                AudioManager.musicSource.volume -= AudioManager.musicVolumeChange;
+	}
 
         if (Timer <= 32)
         {

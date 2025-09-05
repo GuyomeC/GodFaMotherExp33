@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class fire : MonoBehaviour
 {
-    AudioManager AudioManager;
+    [SerializeField] AudioManager AudioManager;
 
     private void Awake()
     {
@@ -11,16 +11,16 @@ public class fire : MonoBehaviour
 
     public void GoodGuess()
     {
-        AudioManager?.PlaySFX(AudioManager.findCatSound);
+        AudioManager.PlaySFX(AudioManager.findCatSound);
     }
 
     public void BadGuess()
     {
-        AudioManager?.PlaySFX(AudioManager.nobodyInCrosshairSound);
+        AudioManager.PlaySFX(AudioManager.nobodyInCrosshairSound);
     }
 
     public void Coin()
     {
-        AudioManager?.PlaySFX(AudioManager.FindCoinSound);
+        AudioManager.PlaySFX(AudioManager.FindCoinSound);
     }
 }
