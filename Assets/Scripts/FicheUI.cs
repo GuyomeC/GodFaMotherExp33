@@ -20,6 +20,14 @@ public class FicheUI : MonoBehaviour
         _desc.text = desc;
         _image.sprite = img;
     }
+    public void Undisplay()
+    {
+
+        _name.gameObject.SetActive(false);
+        _desc.gameObject.SetActive(false);
+        _image.gameObject.SetActive(false);
+        _bg.gameObject.SetActive(false);
+    }
     public void DisplaySheet()
     {
         if (_name.gameObject.activeInHierarchy)

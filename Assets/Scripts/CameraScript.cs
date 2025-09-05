@@ -19,6 +19,7 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private sheetManager sheetManager;
     [SerializeField] private CinemachineVolumeSettings volume;
     [SerializeField] private Vignette vignette;
+    [SerializeField] private FicheUI fiche;
 
     private Vector2 moveInput;
     private Vector2 velocity;
@@ -38,6 +39,7 @@ public class CameraScript : MonoBehaviour
     public UnityEvent OnBadGuess;
     public UnityEvent OnCoin;
 
+    public bool IsZoomed { get => isZoomed; set => isZoomed = value; }
 
     void Start()
     {
@@ -161,7 +163,15 @@ public class CameraScript : MonoBehaviour
             crosshair.transform.Translate(velocityCrosshair * Time.deltaTime);
         }
     }
-
+    public void Dezoom()
+    {
+        isZoomed = true;
+        crosshair.gameObject.SetActive(false);
+        mask.SetActive(false);
+        fiche.Undisplay();
+        StopAllCoroutines();
+        StartCoroutine(Zooming());
+    }
     void Update()
     {
         Vector2 move = new Vector2(moveInput.x, moveInput.y);

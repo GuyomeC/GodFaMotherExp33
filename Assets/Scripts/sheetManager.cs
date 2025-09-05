@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class sheetManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class sheetManager : MonoBehaviour
     [SerializeField] FicheUI _ficheUI;
     [SerializeField] private GameObject _goodEndPanel;
     [SerializeField] Sheet _currentSheet;
+    [SerializeField] private PlayerInput input;
+    [SerializeField] private CameraScript cam;
 
     public Sheet CurrentSheet { get => _currentSheet;}
 
@@ -34,6 +37,8 @@ public class sheetManager : MonoBehaviour
         else
         {
             _goodEndPanel.SetActive(true) ;
+            cam.Dezoom();
+            input.DeactivateInput();
         }
     }
 }

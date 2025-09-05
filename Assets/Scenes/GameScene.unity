@@ -3523,17 +3523,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &490901653 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2747156346811777674, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
-  m_PrefabInstance: {fileID: 1878388608}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc8c946e0307b694c8095f9d71964ac4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TimerUI
 --- !u!1 &505516362
 GameObject:
   m_ObjectHideFlags: 0
@@ -3924,6 +3913,7 @@ MonoBehaviour:
   sheetManager: {fileID: 1569451340}
   volume: {fileID: 699171512}
   vignette: {fileID: 0}
+  fiche: {fileID: 513122953}
   timer: {fileID: 1569451339}
   OnGoodGuess:
     m_PersistentCalls:
@@ -9549,52 +9539,28 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 2.43
---- !u!1 &1555907879 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6952464878771733263, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
-  m_PrefabInstance: {fileID: 1878388608}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1569451338 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8051799171638242579, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
-  m_PrefabInstance: {fileID: 1878388608}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1569451339
+--- !u!114 &1569451339 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6752514612386968104, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+  m_PrefabInstance: {fileID: 1878388608}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1569451338}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b77ec724f87b2b740bece005de79676e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timers
-  _timerStartValue: 120
-  _timerUI: {fileID: 490901653}
-  _badEndPanel: {fileID: 1899327072}
---- !u!114 &1569451340
+--- !u!114 &1569451340 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4655736098188324540, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+  m_PrefabInstance: {fileID: 1878388608}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1569451338}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9383f2c7c3e50c64f8c67817b516a3a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::sheetManager
-  _sheets: {fileID: 11400000, guid: 5ac81c7616349ac45bffcbd2e461c824, type: 2}
-  howManyCats: 2
-  _ficheUI: {fileID: 513122953}
-  _goodEndPanel: {fileID: 1555907879}
-  _currentSheet:
-    name: 
-    visu: {fileID: 0}
-    desc: 
-    target: {fileID: 0}
 --- !u!1 &1589801652
 GameObject:
   m_ObjectHideFlags: 0
@@ -11364,6 +11330,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4655736098188324540, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420033}
+    - target: {fileID: 4655736098188324540, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 519420035}
     - target: {fileID: 5315570181308898230, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -11444,6 +11418,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6752514612386968104, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420033}
+    - target: {fileID: 6752514612386968104, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+      propertyPath: input
+      value: 
+      objectReference: {fileID: 519420035}
+    - target: {fileID: 6752514612386968104, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
+      propertyPath: _timerStartValue
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 8051799171638242579, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -11451,13 +11437,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8051799171638242579, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1569451340}
-    - targetCorrespondingSourceObject: {fileID: 8051799171638242579, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1569451339}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
 --- !u!1 &1897283318
 GameObject:
@@ -11549,11 +11529,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1899327072 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 893523252815589213, guid: 048a6509001908f419cbb0d17e2501a7, type: 3}
-  m_PrefabInstance: {fileID: 1878388608}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1902865113
 GameObject:
   m_ObjectHideFlags: 0
