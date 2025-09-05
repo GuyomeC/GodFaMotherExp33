@@ -21,12 +21,14 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private CinemachineVolumeSettings volume;
     [SerializeField] private Vignette vignette;
     [SerializeField] private FicheUI fiche;
+    [SerializeField] private int gainTime = 5;
+    [SerializeField] private int loseTime = 5;
 
     private Vector2 moveInput;
     private Vector2 velocity;
 
-    private Vector2 minPosition = new Vector2(-300, -160);
-    private Vector2 maxPosition = new Vector2(300, 160);
+    private Vector2 minPosition = new Vector2(-2550, -1450);
+    private Vector2 maxPosition = new Vector2(2550, 1450);
 
     private float zoomInput;
     private bool isZoomed;
@@ -129,7 +131,7 @@ public class CameraScript : MonoBehaviour
             if (crosshairScript.profs.Count > 0 && crosshairScript.profs[0].tag == "Coin")
             {
                 OnCoin.Invoke();
-                timer.Timer += 5;
+                timer.Timer += gainTime;
                 Destroy(crosshairScript.profs[0].gameObject);
                 return;
             }
@@ -140,7 +142,7 @@ public class CameraScript : MonoBehaviour
              }))
             {
                 OnBadGuess.Invoke();
-                timer.Timer -= 5;
+                timer.Timer -= loseTime;
             }
             else
             {
@@ -176,6 +178,24 @@ public class CameraScript : MonoBehaviour
     void Update()
     {
         Vector2 move = new Vector2(moveInput.x, moveInput.y);
+
+        if(cam.transform.position.x < minPosition.x)
+        {
+            cam.transform.position = new Vector3(minPosition.x, cam.transform.position.y, cam.transform.position.z);
+        }
+        if (cam.transform.position.x > maxPosition.x)
+        {
+            cam.transform.position = new Vector3(maxPosition.x, cam.transform.position.y, cam.transform.position.z);
+        }
+        if (cam.transform.position.y < minPosition.y)
+        {
+            cam.transform.position = new Vector3(cam.transform.position.x, minPosition.y, cam.transform.position.z);
+        }
+        if (cam.transform.position.y > maxPosition.y)
+        {
+            cam.transform.position = new Vector3(cam.transform.position.x, maxPosition.y, cam.transform.position.z);
+        }
+
         if (!isZoomed)
         {
             cam.transform.Translate(move * cameraSpeed * Time.deltaTime);
