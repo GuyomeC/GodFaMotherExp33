@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class Timers : MonoBehaviour
 {
+    AudioManager AudioManager;
     [SerializeField] private int _timerStartValue;
     [SerializeField] private TimerUI _timerUI;
     [SerializeField] private GameObject _badEndPanel;
@@ -17,6 +18,8 @@ public class Timers : MonoBehaviour
                 _timer = 0;
                 _timerUI.UpdateTimer(Timer);
                 _badEndPanel.SetActive(true);
+                AudioManager?.PlaySFX(AudioManager.loseSound);
+                AudioManager.musicSource.volume -= AudioManager.musicVolumeChange;
                 cam.Dezoom();
                 input.DeactivateInput();
             }
@@ -29,6 +32,12 @@ public class Timers : MonoBehaviour
             }
         }
     }
+
+    private void Awake()
+    {
+        AudioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+    }
+
     void Start()
     {
         Timer = _timerStartValue;
@@ -43,6 +52,11 @@ public class Timers : MonoBehaviour
         {
             Timer--;
             _time = 0;
+        }
+
+        if (Timer <= 32)
+        {
+            AudioManager.musicSource.clip = AudioManager.clockMusic;
         }
     }
 }

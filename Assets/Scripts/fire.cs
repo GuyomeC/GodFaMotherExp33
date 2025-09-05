@@ -2,18 +2,25 @@ using UnityEngine;
 
 public class fire : MonoBehaviour
 {
+    AudioManager AudioManager;
+
+    private void Awake()
+    {
+        AudioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+    }
+
     public void GoodGuess()
     {
-        Debug.Log("Good Guess");
+        AudioManager?.PlaySFX(AudioManager.findCatSound);
     }
 
     public void BadGuess()
     {
-        Debug.Log("Bad Guess");
+        AudioManager?.PlaySFX(AudioManager.nobodyInCrosshairSound);
     }
 
     public void Coin()
     {
-        Debug.Log("Coin");
+        AudioManager?.PlaySFX(AudioManager.FindCoinSound);
     }
 }
