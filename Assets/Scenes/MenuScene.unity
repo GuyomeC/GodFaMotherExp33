@@ -412,12 +412,12 @@ MonoBehaviour:
   musicSource: {fileID: 2100345180}
   sfxSource: {fileID: 1952847878}
   backgroundMusic: {fileID: 8300000, guid: 8f19587a02a5591449c08b35d4d1fc59, type: 3}
-  clockMusic: {fileID: 0}
-  findCatSound: {fileID: 0}
-  nobodyInCrosshairSound: {fileID: 0}
-  FindCoinSound: {fileID: 0}
-  loseSound: {fileID: 0}
-  winSound: {fileID: 0}
+  clockMusic: {fileID: 8300000, guid: 2b1efb2b5aa28a24baa18f6adcb4f1d8, type: 3}
+  findCatSound: {fileID: 8300000, guid: f263fc91a4886aa43b04ad54b975c70b, type: 3}
+  nobodyInCrosshairSound: {fileID: 8300000, guid: 6785ca770497d1849b2a3a1ec974d572, type: 3}
+  FindCoinSound: {fileID: 8300000, guid: 0d8fa190b4786354fa4d0fe60316798e, type: 3}
+  loseSound: {fileID: 8300000, guid: 3af2f9f12b5edfc49bdc3574b28062d0, type: 3}
+  winSound: {fileID: 8300000, guid: e735e5dafa176f14992785f35c70ed62, type: 3}
   musicVolumeChange: 0.5
   musicVolumeBase: 0
 --- !u!4 &264045957
