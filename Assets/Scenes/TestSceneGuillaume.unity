@@ -703,10 +703,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   inputActionReference: {fileID: -5365930461872571034, guid: 52a673035f6f53b4fa6567b8c24ab4da, type: 3}
-  speed: 200
+  cameraSpeed: 160
+  crossHairSpeed: 200
   cam: {fileID: 699171509}
   crosshairScript: {fileID: 822153491}
+  mask: {fileID: 0}
   sheetManager: {fileID: 1569451340}
+  volume: {fileID: 0}
+  vignette: {fileID: 0}
   timer: {fileID: 1569451339}
   OnGoodGuess:
     m_PersistentCalls:
