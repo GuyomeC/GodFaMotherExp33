@@ -65,14 +65,14 @@ public class CameraScript : MonoBehaviour
     public void OnZoom(InputAction.CallbackContext context)
     {
         zoomInput = context.ReadValue<float>();
-        if (zoomInput > 0 && isZoomed)
+        if (zoomInput < 0 && isZoomed)
         {
             isZoomed = false;
             crosshair.gameObject.SetActive(true);
             StopAllCoroutines();
             StartCoroutine(Zooming());
         }
-        else if (!isZoomed && zoomInput < 0)
+        else if (!isZoomed && zoomInput > 0)
         {
             isZoomed = true;
             crosshair.gameObject.SetActive(false);
