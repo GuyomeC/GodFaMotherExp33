@@ -21,6 +21,8 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private CinemachineVolumeSettings volume;
     [SerializeField] private Vignette vignette;
     [SerializeField] private FicheUI fiche;
+    [SerializeField] private int gainTime = 5;
+    [SerializeField] private int loseTime = 5;
 
     private Vector2 moveInput;
     private Vector2 velocity;
@@ -129,7 +131,7 @@ public class CameraScript : MonoBehaviour
             if (crosshairScript.profs.Count > 0 && crosshairScript.profs[0].tag == "Coin")
             {
                 OnCoin.Invoke();
-                timer.Timer += 5;
+                timer.Timer += gainTime;
                 Destroy(crosshairScript.profs[0].gameObject);
                 return;
             }
@@ -140,7 +142,7 @@ public class CameraScript : MonoBehaviour
              }))
             {
                 OnBadGuess.Invoke();
-                timer.Timer -= 5;
+                timer.Timer -= loseTime;
             }
             else
             {
